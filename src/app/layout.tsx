@@ -39,6 +39,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "E061eSpRcksmqMxoBE0o7ws5shL7Jk9-evUJcZkHDBk",
+  },
   title: "Mind Body Recovery | Integrative Wellness & Recovery Clinic | Sameer",
   description:
     "An integrative wellness clinic and training academy run by Sameer. Hands-on bodywork (acupuncture, cupping, reflexology, Ayurveda), somatic inquiry, and 2-day reset retreats in Chennai.",
@@ -104,6 +107,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${manrope.variable} ${sans.variable} ${caveat.variable}`}>
       <head>
+        <meta name="google-site-verification" content="E061eSpRcksmqMxoBE0o7ws5shL7Jk9-evUJcZkHDBk" />
         <link rel="canonical" href="https://mindbodyrecovery.in" />
         <link
           rel="preload"

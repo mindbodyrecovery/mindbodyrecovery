@@ -89,7 +89,7 @@ export const clinicData = {
         sublabel: "consulting specialists in holistic health",
       },
       {
-        value: "25,000+",
+        value: "25,000+ and counting",
         label: "Lives changing",
         sublabel: "sessions & community outreach touched",
       },

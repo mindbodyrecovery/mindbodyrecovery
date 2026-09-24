@@ -195,6 +195,9 @@ export const ProofStats: React.FC = () => {
           </div>
           {clinicData.proofStats.stats.map((stat, idx) => {
             const { num, prefix, suffix } = parseStatValue(stat.value);
+            const isAndCounting = /and\s*counting|&\s*counting/i.test(suffix);
+            const cleanSuffix = suffix.replace(/\s*(and|&)\s*counting/i, "").trim();
+
             return (
               <BlurReveal
                 key={stat.label}
@@ -204,16 +207,23 @@ export const ProofStats: React.FC = () => {
                 className="p-6 bg-[#1B1E15] rounded-lg border-l-2 border-[#C79A45] border-t border-r border-b border-[#F6F1E4]/15 flex items-center justify-between group hover:bg-[#1B1E15]/80 transition-colors shadow-lg"
               >
                 <div>
-                  <span className="font-display text-4xl sm:text-5xl text-[#C79A45] font-semibold tracking-tight block mb-1">
-                    <CountUp
-                      end={num}
-                      prefix={prefix}
-                      suffix={suffix}
-                      duration={2.2}
-                      delay={idx * 0.15}
-                      format={true}
-                    />
-                  </span>
+                  <div className="flex flex-wrap items-baseline gap-x-2.5 mb-1">
+                    <span className="font-display text-4xl sm:text-5xl text-[#C79A45] font-semibold tracking-tight">
+                      <CountUp
+                        end={num}
+                        prefix={prefix}
+                        suffix={cleanSuffix}
+                        duration={2.2}
+                        delay={idx * 0.15}
+                        format={true}
+                      />
+                    </span>
+                    {isAndCounting && (
+                      <span className="text-[11px] sm:text-xs font-sans font-medium text-[#C79A45] bg-[#C79A45]/15 border border-[#C79A45]/30 px-2.5 py-0.5 rounded-full inline-flex items-center tracking-normal">
+                        and counting
+                      </span>
+                    )}
+                  </div>
                   <h3 className="font-display text-lg text-[#F6F1E4] font-medium">
                     {stat.label}
                   </h3>
